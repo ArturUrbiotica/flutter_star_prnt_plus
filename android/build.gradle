@@ -26,8 +26,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 34
-    namespace "com.urbiotica.flutter_star_prnt_plus"
-
+    namespace "io.eddayy.flutter_star_prnt"
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
