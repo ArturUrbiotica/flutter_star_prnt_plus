@@ -82,10 +82,18 @@ class FlutterStarPrntPlugin : FlutterPlugin, MethodCallHandler {
     // Envuelve resultados en el hilo principal
     class MethodResultWrapper(private val methodResult: Result) : Result {
         private val handler = Handler(Looper.getMainLooper())
-        override fun success(result: Any?) = handler.post { methodResult.success(result) }
-        override fun error(code: String, msg: String?, details: Any?) =
+
+        override fun success(result: Any?) {
+            handler.post { methodResult.success(result) }
+        }
+
+        override fun error(code: String, msg: String?, details: Any?) {
             handler.post { methodResult.error(code, msg, details) }
-        override fun notImplemented() = handler.post { methodResult.notImplemented() }
+        }
+
+        override fun notImplemented() {
+            handler.post { methodResult.notImplemented() }
+        }
     }
 
     // --- API expuesta al Dart ---
