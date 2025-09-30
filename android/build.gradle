@@ -1,3 +1,8 @@
+plugins {
+    id "com.android.library"
+    id "org.jetbrains.kotlin.android"
+}
+
 group 'io.eddayy.flutter_star_prnt'
 version '1.0-SNAPSHOT'
 
@@ -21,9 +26,6 @@ rootProject.allprojects {
     }
 }
 
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-
 android {
     compileSdkVersion 36
     namespace "io.eddayy.flutter_star_prnt"
@@ -34,6 +36,11 @@ android {
         minSdkVersion 21
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions { jvmTarget = "17" }
     lintOptions {
         disable 'InvalidPackage'
     }
